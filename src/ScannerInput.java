@@ -2,6 +2,7 @@
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.nio.file.Paths;
 import java.util.*;
 
 public class ScannerInput {
@@ -39,7 +40,7 @@ public static void LinesSeperateFiles (Scanner scanner, ArrayList<String> moves)
 //add lines to separate files
 for (String line : moves) {
 
-    	File fileLine = new File("C:\\Users\\cw\\Desktop\\ProjectGUI\\Movefiles\\Moves"+String.valueOf(MovesCounter)+".txt");
+    	File fileLine = new File(String.valueOf(Paths.get("Movefiles/Moves"+MovesCounter+".txt").toAbsolutePath()));
     	
     	if(!fileLine.exists()) {
     		fileLine.createNewFile();
@@ -284,18 +285,18 @@ public static List<Move> readMoves(Scanner scanner) {
 
                 PieceType pt = null;
                 switch (line.split("=")[1].toUpperCase()) {
-                    case "K": pt = PieceType.KING;
-                    case "Q": pt = PieceType.QUEEN;
-                    case "A": pt = PieceType.AMAZON;
-                    case "P": pt = PieceType.PAWN;
-                    case "B": pt = PieceType.BISHOP;
-                    case "F": pt = PieceType.DRAGON;
-                    case "R": pt = PieceType.ROOK;
-                    case "N": pt = PieceType.KNIGHT;
-                    case "E": pt = PieceType.ELEPHANT;
-                    case "W": pt = PieceType.PRINCESS;
-                    case "D": pt = PieceType.DRUNKED_PAWN;
-                    case ".": pt = PieceType.SPACE;
+                    case "K": pt = PieceType.KING; break;
+                    case "Q": pt = PieceType.QUEEN; break;
+                    case "A": pt = PieceType.AMAZON; break;
+                    case "P": pt = PieceType.PAWN; break;
+                    case "B": pt = PieceType.BISHOP; break;
+                    case "F": pt = PieceType.DRAGON; break;
+                    case "R": pt = PieceType.ROOK; break;
+                    case "N": pt = PieceType.KNIGHT; break;
+                    case "E": pt = PieceType.ELEPHANT; break;
+                    case "W": pt = PieceType.PRINCESS; break;
+                    case "D": pt = PieceType.DRUNKED_PAWN; break;
+                    case ".": pt = PieceType.SPACE; break;
 
                 }
                 m = new Move(new Position(fromColumn, fromRow), new Position(toColumn, toRow), pt, true);
